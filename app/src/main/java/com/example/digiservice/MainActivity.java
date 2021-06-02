@@ -3,57 +3,83 @@ package com.example.digiservice;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.example.digiservice.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-    private BottomNavigationView navigation;
-    private View search_bar;
+//    private TextView mTextMessage;
+//    private BottomNavigationView navigation;
+////    private View search_bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        initComponent();
+//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        setContentView(R.layout.activity_main);
+        loadFragment(new HomeFragment());
+        initComponent(binding);
     }
+    public boolean loadFragment(Fragment fragment) {
+        if (fragment != null){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameFragment, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+    private void initComponent(ActivityMainBinding binding) {
 
-    private void initComponent() {
-        search_bar = (View) findViewById(R.id.search_bar);
-        mTextMessage = (TextView) findViewById(R.id.search_text);
-
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//        binding.search_bar = (View) findViewById(R.id.search_bar);
+//        mTextMessage = (TextView) findViewById(R.id.search_text);
+//
+//        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        binding.searchBar.icEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "ini pesan", Toast.LENGTH_SHORT).show();
+            }
+        });
+        binding.navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
                 switch (item.getItemId()) {
                     case R.id.navigation_service:
-                        mTextMessage.setText(item.getTitle());
-                        return true;
+                        fragment = new ServiceFragment();
+                        break;
                     case R.id.navigation_user:
-                        mTextMessage.setText(item.getTitle());
-                        return true;
+                        fragment = new ProfileWalletFragment();
+                        break;
                     case R.id.navigation_home:
-                        mTextMessage.setText(item.getTitle());
-                        return true;
+                        fragment = new HomeFragment();
+                        break;
                     case R.id.navigation_shop:
-                        mTextMessage.setText(item.getTitle());
-                        return true;
+                        fragment = new ShopFragment();
+                        break;
                     case R.id.navigation_history:
-                        mTextMessage.setText(item.getTitle());
-                        return true;
+                        fragment = new HistoryFragment();
+                        break;
+
                 }
-                return false;
+                return loadFragment(fragment);
+
             }
         });
 
@@ -62,24 +88,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if (scrollY < oldScrollY) { // up
-                    animateNavigation(false);
-                    animateSearchBar(false);
+                    animateNavigation(false,binding);
+//                    animateSearchBar(false,binding);
                 }
                 if (scrollY > oldScrollY) { // down
-                    animateNavigation(true);
-                    animateSearchBar(true);
+                    animateNavigation(true, binding);
+//                    animateSearchBar(true, binding);
                 }
             }
         });
 
-        // display image
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_1), R.drawable.image_8);
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_2), R.drawable.image_9);
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_3), R.drawable.image_15);
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_4), R.drawable.image_14);
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_5), R.drawable.image_12);
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_6), R.drawable.image_2);
-//        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_7), R.drawable.image_5);
 
         ((ImageButton) findViewById(R.id.bt_menu)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,27 +107,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        Tools.setSystemBarColor(this, R.color.grey_5);
-//        Tools.setSystemBarLight(this);
     }
 
 
     boolean isNavigationHide = false;
 
-    private void animateNavigation(final boolean hide) {
+    private void animateNavigation(final boolean hide, ActivityMainBinding binding) {
         if (isNavigationHide && hide || !isNavigationHide && !hide) return;
         isNavigationHide = hide;
-        int moveY = hide ? (2 * navigation.getHeight()) : 0;
-        navigation.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
+        int moveY = hide ? (2 * binding.navigation.getHeight()) : 0;
+        binding.navigation.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
     }
 
     boolean isSearchBarHide = false;
 
-    private void animateSearchBar(final boolean hide) {
-        if (isSearchBarHide && hide || !isSearchBarHide && !hide) return;
-        isSearchBarHide = hide;
-        int moveY = hide ? -(2 * search_bar.getHeight()) : 0;
-        search_bar.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
-    }
+//    private void animateSearchBar(final boolean hide, ActivityMainBinding binding) {
+//        if (isSearchBarHide && hide || !isSearchBarHide && !hide) return;
+//        isSearchBarHide = hide;
+//        int moveY = hide ? -(2 * binding.searchBar.getHeight()) : 0;
+//        binding.searchBar.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
+//    }
 
 }

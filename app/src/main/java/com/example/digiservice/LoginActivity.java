@@ -1,25 +1,31 @@
 package com.example.digiservice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import com.example.digiservice.databinding.ActivityLoginBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 public class LoginActivity extends AppCompatActivity {
-    private View parent_view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        parent_view = findViewById(android.R.id.content);
+        ActivityLoginBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+//        setContentView(R.layout.activity_login);
+//        parent_view = findViewById(android.R.id.content);
 
 
-        ((View) findViewById(R.id.sign_up_for_account)).setOnClickListener(new View.OnClickListener() {
+        binding.signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(parent_view, "Sign up for an account", Snackbar.LENGTH_SHORT).show();
+                Intent gotomainactivity = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(gotomainactivity);
             }
         });
     }

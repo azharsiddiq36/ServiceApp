@@ -14,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".HandphoneListActivity"></activity>
+        <activity
+            android:name=".ListMessageActivity"
+            android:label="@string/title_activity_list_message"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".HandphoneListActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
         <activity

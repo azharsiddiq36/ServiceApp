@@ -234,15 +234,14 @@
 
     <!--shopping category data-->
     <integer-array name="shop_category_icon">
+        <item>@drawable/ic_samsung</item>
+        <item>@drawable/ic_apple</item>
+        <item>@drawable/ic_xiaomi</item>
+        <item>@drawable/ic_huawei</item>
+        <item>@drawable/ic_vivo</item>
+        <item>@drawable/ic_oppo</item>
+        <item>@drawable/ic_nokia</item>
         <item>@drawable/ic_devices</item>
-        <item>@drawable/ic_accessibility</item>
-        <item>@drawable/ic_face</item>
-        <item>@drawable/ic_child_friendly</item>
-        <item>@drawable/ic_weekend</item>
-
-        <item>@drawable/ic_pool</item>
-        <item>@drawable/ic_confirmation_number</item>
-        <item>@drawable/ic_restaurant</item>
     </integer-array>
 
     <integer-array name="shop_category_bg">
@@ -258,64 +257,59 @@
     </integer-array>
 
     <string-array name="shop_category_title">
-        <item>Gadgets and Computers</item>
-        <item>Fashion</item>
-        <item>Beauty and Health</item>
-        <item>Babies and Kids</item>
-        <item>Home and Garden</item>
-
-        <item>Sports and Hobby</item>
-        <item>Ticket and Voucher</item>
-        <item>Service and Food</item>
+        <item>Samsung</item>
+        <item>Apple</item>
+        <item>Xiaomi</item>
+        <item>Huawei</item>
+        <item>Vivo</item>
+        <item>Oppo/Realme</item>
+        <item>Nokia</item>
+        <item>Lainnya</item>
     </string-array>
 
     <string-array name="shop_category_brief">
-        <item>100k Items</item>
-        <item>655k Items</item>
-        <item>221k Items</item>
-        <item>85k Items</item>
-        <item>725k Items</item>
-
-        <item>932k Items</item>
-        <item>475k Items</item>
-        <item>362k Items</item>
+        <item>124 toko</item>
+        <item>424 toko</item>
+        <item>124 toko</item>
+        <item>132 toko</item>
+        <item>192 toko</item>
+        <item>123 toko</item>
+        <item>523 toko</item>
+        <item>1232 toko</item>
     </string-array>
 
     <!--shopping product data-->
     <integer-array name="shop_product_image">
-        <item>@drawable/image_shop_1</item>
-        <item>@drawable/image_shop_2</item>
-        <item>@drawable/image_shop_3</item>
-        <item>@drawable/image_shop_4</item>
-        <item>@drawable/image_shop_5</item>
-
-        <item>@drawable/image_shop_6</item>
-        <item>@drawable/image_shop_7</item>
-        <item>@drawable/image_shop_8</item>
+        <item>@drawable/dummy1</item>
+        <item>@drawable/dummy2</item>
+        <item>@drawable/dummy3</item>
+        <item>@drawable/dummy4</item>
+        <item>@drawable/dummy1</item>
+        <item>@drawable/dummy2</item>
+        <item>@drawable/dummy3</item>
+        <item>@drawable/dummy4</item>
     </integer-array>
 
     <string-array name="shop_product_title">
-        <item>Fashion B07 Keara 933</item>
-        <item>Coup Hoodie Jacket</item>
-        <item>Gala Suede Jacket Flower</item>
-        <item>Qonnoq Checked Blouse</item>
-        <item>Java Seven Belladji 674</item>
-
-        <item>Kanvas Sneaker Shoes</item>
-        <item>Clarks Idamarie Faye Lea</item>
-        <item>Piero Rush Women</item>
+        <item>Nokia N707ABL3</item>
+        <item>Realme V92</item>
+        <item>Huawei N7AR</item>
+        <item>Samsung Galaxy Bima Sakti</item>
+        <item>Xiaomi redmi note 29</item>
+        <item>Iphone 82</item>
+        <item>Vivo TDR 3000</item>
+        <item>Oppo 812</item>
     </string-array>
 
     <string-array name="shop_product_price">
-        <item>$ 48.90</item>
-        <item>$ 89.00</item>
-        <item>$ 66.80</item>
-        <item>$ 34.50</item>
-        <item>$ 44.90</item>
-
-        <item>$ 59.00</item>
-        <item>$ 78.20</item>
-        <item>$ 96.00</item>
+        <item>Rp 2.400.000</item>
+        <item>Rp 2.500.000</item>
+        <item>Rp 2.400.000</item>
+        <item>Rp 5.500.000</item>
+        <item>Rp 2.400.000</item>
+        <item>Rp 3.500.000</item>
+        <item>Rp 2.400.000</item>
+        <item>Rp 2.500.000</item>
     </string-array>
 
     <!--music data-->

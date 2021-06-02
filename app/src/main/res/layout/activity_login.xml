@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="name" type="String"/>
+        <variable name="lastName" type="String"/>
+    </data>
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -32,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_medium"
-            android:text="Welcome to MaterialX"
+            android:text="Selamat Datang di D-Service"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="@color/green_300"
             android:textStyle="bold" />
@@ -42,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_medium"
-            android:text="Sign in to continue"
+            android:text="Silahkan masuk"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
             android:textColor="@color/blue_grey_300" />
 
@@ -67,6 +73,7 @@
             android:inputType="text"
             android:maxLength="50"
             android:maxLines="1"
+            android:id="@+id/etUsername"
             android:singleLine="true"
             android:textColor="@color/blue_grey_800"
             android:theme="@style/EditText.Green" />
@@ -88,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-4dp"
             android:layout_marginRight="-4dp"
+            android:id="@+id/etPassword"
             android:inputType="textPassword"
             android:maxLength="50"
             android:maxLines="1"
@@ -101,6 +109,7 @@
             android:layout_height="@dimen/spacing_mxlarge" />
 
         <Button
+            android:id="@+id/sign_in"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="-4dp"
@@ -126,6 +135,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tvSignUp"
                 android:text="SIGN UP FOR AN ACCOUNT?"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                 android:textColor="@color/blue_grey_400" />
@@ -140,3 +150,4 @@
     </LinearLayout>
 
 </RelativeLayout>
+</layout>

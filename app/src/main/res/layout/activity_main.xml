@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="name" type="String"/>
+        <variable name="lastName" type="String"/>
+
+    </data>
+<RelativeLayout
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +35,16 @@
                     android:layout_height="?attr/actionBarSize"
                     android:layout_marginBottom="@dimen/spacing_middle" />
 
-                <include layout="@layout/fragment_tabs_store" />
+                <FrameLayout
+                    android:id="@+id/frameFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_marginBottom="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
 
@@ -54,3 +69,4 @@
         app:menu="@menu/menu_bottom_navigation_basic" />
 
 </RelativeLayout>
+</layout>
