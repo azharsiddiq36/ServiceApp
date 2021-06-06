@@ -1,51 +1,60 @@
 package com.example.digiservice;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.digiservice.databinding.ActivityListMessageBinding;
+import com.example.digiservice.model.People;
+
+import java.util.List;
 
 public class ListMessageActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityListMessageBinding binding;
-
+    private AdapterListBasic mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityListMessageBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        ActivityListMessageBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_message);
+        initToolbar(binding);
+        initComponent(binding);
+    }
 
-        setSupportActionBar(binding.toolbar);
+    private void initToolbar(ActivityListMessageBinding binding) {
+        binding.toolbar.toolbar.setNavigationIcon(R.drawable.ic_menu);
+        setSupportActionBar(binding.toolbar.toolbar);
+        getSupportActionBar().setTitle("Pesan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    private void initComponent(ActivityListMessageBinding binding) {
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setHasFixedSize(true);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_list_message);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        List<People> items = DataGenerator.getPeopleData(this);
+        items.addAll(DataGenerator.getPeopleData(this));
+        items.addAll(DataGenerator.getPeopleData(this));
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        //set data and list adapter
+        mAdapter = new AdapterListBasic(this, items);
+        binding.recyclerView.setAdapter(mAdapter);
+
+        // on item list clicked
+        mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClick(View view, People obj, int position) {
+                Intent gotomessage = new Intent(ListMessageActivity.this,MessageActivity.class);
+                startActivity(gotomessage);
             }
         });
+
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_list_message);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+
 }

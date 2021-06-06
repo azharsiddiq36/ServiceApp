@@ -13,11 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity
-            android:name=".ListMessageActivity"
-            android:label="@string/title_activity_list_message"
-            android:theme="@style/NoActionBar"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".ProductDetailActivity"></activity>
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".ListMessageActivity" />
         <activity android:name=".HandphoneListActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />

@@ -1,5 +1,6 @@
 package com.example.digiservice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -55,7 +56,8 @@ public class ShopFragment extends Fragment {
         mAdapter.setOnItemClickListener(new AdapterGridShopProductCard.OnItemClickListener() {
             @Override
             public void onItemClick(View view, ShopProduct obj, int position) {
-//                Snackbar.make(parent_view, "Item " + obj.title + " clicked", Snackbar.LENGTH_SHORT).show();
+                Intent gotodetail = new Intent(getContext(),ProductDetailActivity.class);
+                startActivity(gotodetail);
             }
         });
 
