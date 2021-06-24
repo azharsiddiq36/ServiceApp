@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="name" type="String"/>
+        <variable name="lastName" type="String"/>
+    </data>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -82,9 +87,10 @@
                             android:textColorHint="@color/grey_40">
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/text_nama"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Name" />
+                                android:hint="Nama" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,26 +129,15 @@
                                 android:textColorHint="@color/grey_40">
 
                                 <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/text_phone"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Phone Number" />
+                                    android:hint="Nomor Hp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
                         </LinearLayout>
 
-                        <Button
-                            android:id="@+id/spn_phone_type"
-                            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:layout_weight="2"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="Phone Type"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/grey_40" />
 
                     </LinearLayout>
 
@@ -181,24 +176,13 @@
                                 <androidx.appcompat.widget.AppCompatEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Email" />
+                                    android:hint="Email"
+                                    android:inputType="textEmailAddress"
+                                    android:id="@+id/text_email"/>
 
                             </com.google.android.material.textfield.TextInputLayout>
 
                         </LinearLayout>
-
-                        <Button
-                            android:id="@+id/spn_email_type"
-                            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:layout_weight="2"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="Email Type"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/grey_40" />
 
                     </LinearLayout>
 
@@ -232,85 +216,31 @@
                             <androidx.appcompat.widget.AppCompatEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Address" />
+                                android:hint="Alamat"
+                                android:inputType="text"
+                                android:id="@+id/text_alamat"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
 
+
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/spacing_large" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <ImageButton
+                            android:id="@+id/password"
                             android:layout_width="@dimen/spacing_mxlarge"
                             android:layout_height="@dimen/spacing_mxlarge"
                             android:layout_marginTop="@dimen/spacing_mlarge"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_60"
-                            android:src="@drawable/ic_domain" />
-
-                        <View
-                            android:layout_width="@dimen/spacing_large"
-                            android:layout_height="match_parent" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColorHint="@color/grey_40">
-
-                                <androidx.appcompat.widget.AppCompatEditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Company" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/spacing_large" />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColorHint="@color/grey_40">
-
-                                <androidx.appcompat.widget.AppCompatEditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Title" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/spacing_large" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageButton
-                            android:layout_width="@dimen/spacing_mxlarge"
-                            android:layout_height="@dimen/spacing_mxlarge"
-                            android:layout_marginTop="@dimen/spacing_mlarge"
-                            android:background="@android:color/transparent"
-                            android:tint="@color/grey_60"
-                            android:src="@drawable/ic_public" />
+                            android:src="@drawable/ic_vpn_key" />
 
                         <View
                             android:layout_width="@dimen/spacing_large"
@@ -324,15 +254,28 @@
                             <androidx.appcompat.widget.AppCompatEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Website" />
-
+                                android:hint="Password"
+                                android:inputType="text"
+                                android:id="@+id/text_password"/>
                         </com.google.android.material.textfield.TextInputLayout>
-
                     </LinearLayout>
 
+                    <Button
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/btn_register"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="-4dp"
+                        android:layout_marginRight="-4dp"
+                        android:background="@drawable/btn_rounded_green_300"
+                        android:text="D A F T A R"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
+
 
         </androidx.core.widget.NestedScrollView>
 
@@ -350,4 +293,7 @@
             android:src="@drawable/ic_photo_camera" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 </LinearLayout>
+</layout>
