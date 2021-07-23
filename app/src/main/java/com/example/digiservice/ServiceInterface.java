@@ -1,5 +1,7 @@
 package com.example.digiservice;
 
+import com.example.digiservice.model.ResponseModel;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -11,18 +13,24 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface ServiceInterface {
-//    @FormUrlEncoded
-//    @POST("api/login/pengguna")
+    @FormUrlEncoded
+//    @POST("api/teknisi-all")
 //    Call<ResponsePengguna> loginRequest(@Field("pengguna_username") String username,
 //                                        @Field("pengguna_password") String password);
 
 
-//    @Multipart
-//    @POST("api/update2/pengguna")
-//    Call<ResponsePengguna> updateProfile2(@Part MultipartBody.Part image,
-//                                          @Part("pengguna_id") RequestBody pengguna_id,
-//                                          @Part("pengguna_nomor") RequestBody pengguna_nomor,
-//                                          @Part("pengguna_email") RequestBody pengguna_email,
-//                                          @Part("pengguna_nama") RequestBody pengguna_nama);
+    @Multipart
+    @POST("api/teknisi-insert")
+    Call<ResponseModel> registryAsTechnician(@Part MultipartBody.Part image, 
+                                             @Part MultipartBody.Part certificate,
+                                             @Part("teknisi_nama") RequestBody name,
+                                             @Part("teknisi_email") RequestBody email,
+                                             @Part("teknisi_alamat") RequestBody address,
+                                             @Part("teknisi_lng") RequestBody longitude,
+                                             @Part("teknisi_lat") RequestBody latitude,
+                                             @Part("teknisi_hp") RequestBody phone_number,
+                                             @Part("teknisi_total_score") RequestBody total_score,
+                                             @Part("teknisi_total_responden") RequestBody responden,
+                                             @Part("teknisi_deskripsi") RequestBody description);
 
 }
